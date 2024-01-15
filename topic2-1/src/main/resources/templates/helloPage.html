@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://thymeleaf.org">
+	<head>
+		<style>
+			*{
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			h1{
+				color: blue;
+			}
+			.title_box{
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="title_box">
+			<h1 th:text = "${message}">Hello</h1>
+		</div>
+	</body>
+</html>
