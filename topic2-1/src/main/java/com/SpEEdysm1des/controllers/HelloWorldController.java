@@ -52,4 +52,18 @@ public class HelloWorldController {
 		model.addAttribute("people", friends);
 		return "printFriends";
 	}
+	@GetMapping("/peopleJSON")
+	@ResponseBody
+	public List<Person> showFriendsJSON(Model model) {
+		List<Person> friends = new ArrayList<Person>();
+		
+		friends.add(new Person(0, "Emre", 22, 142.2f));
+		friends.add(new Person(1, "Bob", 42, 52.5f));
+		friends.add(new Person(2, "James", 27, 134.2f));
+		friends.add(new Person(3, "Denise", 27, 172.5f));
+		
+		//System.out.println(friends);
+		//model.addAttribute("people", friends);
+		return friends;
+	}
 }
