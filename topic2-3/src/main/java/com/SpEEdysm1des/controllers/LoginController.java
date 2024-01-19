@@ -19,7 +19,7 @@ public class LoginController {
 	public String displayLoginForm(Model model)
 	{
 		model.addAttribute("loginModel", new LoginModel());
-		return "loginForm";
+		return "loginForm.html";
 	}
 	@PostMapping("/processLogin")
 	public String processLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model)
@@ -30,6 +30,6 @@ public class LoginController {
 			return "loginForm";
 		}
 		model.addAttribute("loginModel", loginModel);
-		return "loginResults";
+		return "loginResults.html";
 	}
 }
