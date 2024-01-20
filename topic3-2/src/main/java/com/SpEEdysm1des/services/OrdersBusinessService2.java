@@ -29,6 +29,19 @@ public class OrdersBusinessService2 implements OrdersBusinessServiceInterface{
 		orders.add(new OrderModel(4l, "AAE", "Boxing", 500.0f, 5));
 		return orders;
 	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		System.out.println("initialized OrdersBusinessService2");
+		
+	}
+
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		System.out.println("Destroy OrdersBusinessService2");
+	}
 	
 
 }

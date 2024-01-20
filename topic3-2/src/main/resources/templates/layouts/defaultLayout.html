@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<Link href="/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<!-- header -->
+		<div th:replace="~{layouts/commonHeader :: header}">header</div>
+		<!-- content -->
+		<section layout:fragment="content">
+		</section>
+		<!-- footer -->
+		<div th:replace="~{layouts/commonFooter :: footer}">footer</div>
+		<script src="/js/bootstrap.bundle.js"></script>
+	</body>
+</html>

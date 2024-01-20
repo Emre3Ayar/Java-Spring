@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.SpEEdysm1des.models.OrderModel;
 
-//@Service
+//@Service : needed if SpringConfig doesn't exist
 public class OrdersBusinessService implements OrdersBusinessServiceInterface{
 
 	@Override
@@ -27,6 +27,18 @@ public class OrdersBusinessService implements OrdersBusinessServiceInterface{
 		orders.add(new OrderModel(3l, "003", "Programming", 1760.0f, 4));
 		orders.add(new OrderModel(4l, "004", "Jumping", 2500.0f, 5));
 		return orders;
+	}
+	//on initialized
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		System.out.println("initialized OrdersBusinessService");
+	}
+	//on destroyed
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		System.out.println("Destroy OrdersBusinessService");
 	}
 	
 

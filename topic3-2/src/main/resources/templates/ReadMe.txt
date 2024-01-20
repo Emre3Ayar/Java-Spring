@@ -1,0 +1,1 @@
+Here are the pages located. Make a folder "layouts" with a footer, header, defaultLayout. Components for pages.
