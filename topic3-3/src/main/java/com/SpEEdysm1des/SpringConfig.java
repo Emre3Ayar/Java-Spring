@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.RequestScope;
 
 import com.SpEEdysm1des.services.OrdersBusinessService;
-import com.SpEEdysm1des.services.OrdersBusinessService2;
 import com.SpEEdysm1des.services.OrdersBusinessServiceInterface;
 
 @Configuration
@@ -14,6 +13,6 @@ public class SpringConfig {
 	@Bean(name="orderBusinessService", initMethod = "init", destroyMethod = "destroy")
 	//@SessionScope : Executes Interface on every reloaded page
 	public OrdersBusinessServiceInterface getOrdersBusiness() {
-		return new OrdersBusinessService2();
+		return new OrdersBusinessService();
 	}
 }
