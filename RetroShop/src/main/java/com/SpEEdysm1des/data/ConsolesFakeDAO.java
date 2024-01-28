@@ -1,16 +1,23 @@
 package com.SpEEdysm1des.data;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import org.springframework.stereotype.Repository;
 
 import com.SpEEdysm1des.models.ConsoleModel;
 
+@Repository
 public class ConsolesFakeDAO implements ConsolesDataAccessInterface{
 	
 	List<ConsoleModel> consoles = new ArrayList<ConsoleModel>();
 	
 	public ConsolesFakeDAO() {
 		consoles.add(new ConsoleModel(0, "Gameboy", "beige"));
+		consoles.add(new ConsoleModel(0, "SNES", "yellow"));
+		consoles.add(new ConsoleModel(0, "Playstation", "red"));
+		consoles.add(new ConsoleModel(0, "Wii", "green"));
 	}
 
 	@Override
@@ -34,7 +41,11 @@ public class ConsolesFakeDAO implements ConsolesDataAccessInterface{
 	@Override
 	public List<ConsoleModel> CarouselConsoles() {
 		// TODO Auto-generated method stub
-		return null;
+		List<ConsoleModel> indexList = new ArrayList<ConsoleModel>();
+		for (int i = 0;i < consoles.size(); i++) {
+			indexList.add(consoles.get(i));
+		}
+		return indexList;
 	}
 
 	@Override
