@@ -1,31 +1,29 @@
 li {
   display: inline;
   margin-right: 7%;
+  text-align: center;
+  vertical-align: middle;
+  padding: 1%;
 }
-
-body
-{
-	margin: 0;
-}
+*{margin: 0;}
 .index
 {
-	margin-top: 5%;
+	margin-top: 2%;
 	padding-top: 1%;
 	margin-left: auto;
 	margin-right: auto;
 	width: 95%;
 	background-color: beige;
 	text-align: center;
-	margin-bottom: 5%;
+	margin-bottom: 2%;
 	padding-bottom: 1%;
 }
-.navbar, a:link
+.navbar, a:link, a:visited
 {
 	background-color: black;
 	color: aliceblue;
 	text-decoration: none;
 }
-
 
 .carousel
 {
@@ -33,14 +31,21 @@ body
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: space-evenly;
+	column-gap: 100px;
 }
 .carousel > div
 {
 	width: 15%;
 	height: 10%;
-	border: 1px solid black;
+	border: 10px solid black;
+	border-radius: 5%;
+	margin: 1%;
 }
 .carousel > div > div > img
 {
 	width: 100%;
+}
+.carousel > div > div
+{
+	padding: 3%;
 }

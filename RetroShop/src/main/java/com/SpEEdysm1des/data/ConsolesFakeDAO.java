@@ -22,7 +22,7 @@ public class ConsolesFakeDAO implements ConsolesDataAccessInterface{
 	public ConsolesFakeDAO() {
 		consoles.add(new ConsoleModel(0, "Gameboy", "Beige", "gameboy.png"));
 		consoles.add(new ConsoleModel(1, "SNES", "Gray", "snes.png"));
-		consoles.add(new ConsoleModel(2, "Playstation", "red", "playstation.png"));
+		consoles.add(new ConsoleModel(2, "Playstation", "Gray", "playstation.png"));
 		consoles.add(new ConsoleModel(3, "Wii", "White", "wii.png"));
 		consoles.add(new ConsoleModel(0, "Philips CDI", "Gray", "cdi.png"));
 		consoles.add(new ConsoleModel(1, "megadrive", "Black", "megadrive.png"));
