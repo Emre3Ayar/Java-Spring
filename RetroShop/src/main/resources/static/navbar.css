@@ -16,3 +16,9 @@ body
 	text-align: center;
 	background-color: beige;
 }
+.navbar, a:link
+{
+	background-color: black;
+	color: aliceblue;
+	text-decoration: none;
+}

@@ -10,6 +10,7 @@ public class MainController {
 	@GetMapping("/")
 	public String showAllOrders()
 	{	
+		
 		return "index.html";
 	}
 }
