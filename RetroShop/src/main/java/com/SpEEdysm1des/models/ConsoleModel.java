@@ -4,15 +4,17 @@ public class ConsoleModel {
 	long id = 0L;
 	String consoleName = "";
 	String consoleColor = "";
+	String consoleImage = "";
 	@Override
 	public String toString() {
 		return "Console [id=" + id + ", consoleName=" + consoleName + ", consoleColor=" + consoleColor + "]";
 	}
-	public ConsoleModel(long id, String consoleName, String consoleColor) {
+	public ConsoleModel(long id, String consoleName, String consoleColor, String consoleImage) {
 		super();
 		this.id = id;
 		this.consoleName = consoleName;
 		this.consoleColor = consoleColor;
+		this.consoleImage = consoleImage;
 	}
 	public long getId() {
 		return id;
@@ -31,6 +33,12 @@ public class ConsoleModel {
 	}
 	public void setConsoleColor(String consoleColor) {
 		this.consoleColor = consoleColor;
+	}
+	public String getConsoleImage() {
+		return consoleImage;
+	}
+	public void setConsoleImage(String consoleImage) {
+		this.consoleImage = consoleImage;
 	}
 	
 }

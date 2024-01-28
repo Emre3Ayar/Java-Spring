@@ -1,9 +1,15 @@
 package com.SpEEdysm1des.data;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 
 import com.SpEEdysm1des.models.ConsoleModel;
@@ -14,10 +20,10 @@ public class ConsolesFakeDAO implements ConsolesDataAccessInterface{
 	List<ConsoleModel> consoles = new ArrayList<ConsoleModel>();
 	
 	public ConsolesFakeDAO() {
-		consoles.add(new ConsoleModel(0, "Gameboy", "beige"));
-		consoles.add(new ConsoleModel(0, "SNES", "yellow"));
-		consoles.add(new ConsoleModel(0, "Playstation", "red"));
-		consoles.add(new ConsoleModel(0, "Wii", "green"));
+		consoles.add(new ConsoleModel(0, "Gameboy", "beige", "gameboy.png"));
+		consoles.add(new ConsoleModel(1, "SNES", "yellow", "snes.png"));
+		consoles.add(new ConsoleModel(2, "Playstation", "red", "playstation.png"));
+		consoles.add(new ConsoleModel(3, "Wii", "green", "wii.png"));
 	}
 
 	@Override
