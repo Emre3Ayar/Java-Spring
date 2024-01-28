@@ -27,4 +27,11 @@ public class MainController {
 		model.addAttribute("consoles", consoles);
 		return "index.html";
 	}
+	@GetMapping("/consoles")
+	public String showAllConsoles(Model model)
+	{	
+		List<ConsoleModel> consoles = service.getConsoles();
+		model.addAttribute("consoles", consoles);
+		return "consoles.html";
+	}
 }

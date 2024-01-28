@@ -20,10 +20,14 @@ public class ConsolesFakeDAO implements ConsolesDataAccessInterface{
 	List<ConsoleModel> consoles = new ArrayList<ConsoleModel>();
 	
 	public ConsolesFakeDAO() {
-		consoles.add(new ConsoleModel(0, "Gameboy", "beige", "gameboy.png"));
-		consoles.add(new ConsoleModel(1, "SNES", "yellow", "snes.png"));
+		consoles.add(new ConsoleModel(0, "Gameboy", "Beige", "gameboy.png"));
+		consoles.add(new ConsoleModel(1, "SNES", "Gray", "snes.png"));
 		consoles.add(new ConsoleModel(2, "Playstation", "red", "playstation.png"));
-		consoles.add(new ConsoleModel(3, "Wii", "green", "wii.png"));
+		consoles.add(new ConsoleModel(3, "Wii", "White", "wii.png"));
+		consoles.add(new ConsoleModel(0, "Philips CDI", "Gray", "cdi.png"));
+		consoles.add(new ConsoleModel(1, "megadrive", "Black", "megadrive.png"));
+		consoles.add(new ConsoleModel(2, "Playstation 2", "Black", "playstation2.png"));
+		consoles.add(new ConsoleModel(3, "Sega Saturn", "White", "saturn.png"));
 	}
 
 	@Override
@@ -35,7 +39,7 @@ public class ConsolesFakeDAO implements ConsolesDataAccessInterface{
 	@Override
 	public List<ConsoleModel> getConsoles() {
 		// TODO Auto-generated method stub
-		return null;
+		return consoles;
 	}
 
 	@Override
@@ -48,7 +52,7 @@ public class ConsolesFakeDAO implements ConsolesDataAccessInterface{
 	public List<ConsoleModel> CarouselConsoles() {
 		// TODO Auto-generated method stub
 		List<ConsoleModel> indexList = new ArrayList<ConsoleModel>();
-		for (int i = 0;i < consoles.size(); i++) {
+		for (int i = 0;i < 4; i++) {
 			indexList.add(consoles.get(i));
 		}
 		return indexList;
