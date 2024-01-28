@@ -1,0 +1,11 @@
+.footer
+{
+	background-color: black;
+	color: aliceblue;
+	width: 100%;
+	margin: 0;
+	padding: 1%;
+	display: inline-block;
+	bottom: 0;
+	position: absolute;
+}

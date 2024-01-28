@@ -1,0 +1,18 @@
+li {
+  display: inline;
+  margin-right: 7%;
+}
+
+body
+{
+	margin: 0;
+}
+.index
+{
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	text-align: center;
+	background-color: beige;
+}
