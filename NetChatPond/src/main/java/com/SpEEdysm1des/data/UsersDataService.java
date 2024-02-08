@@ -16,12 +16,15 @@ import org.springframework.stereotype.Repository;
 import com.SpEEdysm1des.models.MessageModel;
 import com.SpEEdysm1des.models.UserModel;
 import com.SpEEdysm1des.models.UsersMapper;
+import com.SpEEdysm1des.services.MessagesBusinessServiceInterface;
+import com.SpEEdysm1des.services.UsersBusinessServiceInterface;
 
 //MySQL database
 @Primary
 @Repository
 public class UsersDataService implements UserDataAccessInterface {
-	
+	@Autowired
+	MessagesBusinessServiceInterface service;
 	@Autowired
 	DataSource dataSource;
 	@Autowired
@@ -64,6 +67,7 @@ public class UsersDataService implements UserDataAccessInterface {
 					//Map<String, Object> parameters = new HashMap<String, Object>();
 					//parameters.put(message, m.)
 					//List<MessageModel> r = jdbcTemplate.query("INSERT INTO messages (USERID, MESSAGECONTENT) VALUES (?,?)");
+					service.addMessage(results.get(i).getId(), message);
 					return true;
 				}
 			}
@@ -74,7 +78,17 @@ public class UsersDataService implements UserDataAccessInterface {
 	@Override
 	public long addUser(UserModel newUser) {
 		// TODO Auto-generated method stub
-		return 0;
+		SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
+		simpleJdbcInsert.withTableName("users").usingGeneratedKeyColumns("ID");
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("USERNAME", newUser.getUserName());
+		parameters.put("USERTOKEN", newUser.getUserToken());
+		parameters.put("USERRED", newUser.getUserRed());
+		parameters.put("USERBLUE", newUser.getUserBlue());
+		parameters.put("USERGREEN", newUser.getUserGreen());
+		parameters.put("USERMESSAGES", newUser.getMessageId());
+		Number results = simpleJdbcInsert.executeAndReturnKey(parameters);
+		return results.longValue();
 	}
 	
 }
