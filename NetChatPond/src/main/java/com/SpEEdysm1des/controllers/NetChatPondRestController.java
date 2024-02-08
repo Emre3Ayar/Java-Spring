@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.SpEEdysm1des.models.UserModel;
+import com.SpEEdysm1des.services.MessagesBusinessServiceInterface;
 import com.SpEEdysm1des.services.UsersBusinessServiceInterface;
 
 @RestController
@@ -20,6 +21,8 @@ import com.SpEEdysm1des.services.UsersBusinessServiceInterface;
 @RequestMapping("/api/v1/users")
 public class NetChatPondRestController {
 	UsersBusinessServiceInterface service;
+	@Autowired
+	MessagesBusinessServiceInterface service2;
 	@Autowired
 	public NetChatPondRestController(UsersBusinessServiceInterface service) {
 		super();
@@ -41,5 +44,10 @@ public class NetChatPondRestController {
 	{	
 		List<UserModel> users = service.getUsers();
 		return users;
+	}
+	@PostMapping("/getmessages/{id}")
+	public String getMessages(@PathVariable(name="id") long id)
+	{	
+		return service2.getMessageFrom(id);
 	}
 }

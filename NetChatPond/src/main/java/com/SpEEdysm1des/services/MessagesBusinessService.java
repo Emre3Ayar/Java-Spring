@@ -40,5 +40,11 @@ public class MessagesBusinessService implements MessagesBusinessServiceInterface
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public String getMessageFrom(long userId) {
+		// TODO Auto-generated method stub
+		return messagesDAO.getMessageFrom(userId);
+	}
 	
 }

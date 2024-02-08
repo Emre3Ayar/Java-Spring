@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.SpEEdysm1des.models.MessageModel;
 import com.SpEEdysm1des.models.UserModel;
 import com.SpEEdysm1des.models.UsersMapper;
+import com.SpEEdysm1des.models.MessagesMapper;
 
 //MySQL database
 @Repository
@@ -41,5 +42,23 @@ public class MessagesDataService implements MessageDataAccessInterface {
 	public boolean test() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	@Override
+	public String getMessageFrom(long userId) {
+		// TODO Auto-generated method stub
+		//var token = model.getUserToken();
+		String full = "";
+		List<MessageModel> results = jdbcTemplate.query("SELECT * FROM messages WHERE ? = USERID", new MessagesMapper(), userId);
+		if (results.size() != 0) {
+			for (MessageModel messageModel : results) {
+				full += messageModel.getMessageContent();
+				full += "|";
+			}
+			return full;
+		}
+		else
+		{
+			return "nothing";
+		}
 	}
 }

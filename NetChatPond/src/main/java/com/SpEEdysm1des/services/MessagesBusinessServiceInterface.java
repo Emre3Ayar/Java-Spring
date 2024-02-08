@@ -9,4 +9,5 @@ public interface MessagesBusinessServiceInterface {
 	public void destroy();
 	public long addMessage(long userId, String content);
 	public boolean test();
+	public String getMessageFrom(long userId);
 }
