@@ -88,7 +88,7 @@ public class MessagesDataService implements MessageDataAccessInterface {
 	public List<DisplayMessageModel> displayMessages() {
 		// TODO Auto-generated method stub
 		List<UserModel> results = jdbcTemplate.query("SELECT * FROM users", new UsersMapper());
-		List<MessageModel> messageresults = jdbcTemplate.query("SELECT * FROM messages LIMIT 5", new MessagesMapper());
+		List<MessageModel> messageresults = jdbcTemplate.query("SELECT * FROM messages ORDER BY ID DESC LIMIT 5", new MessagesMapper());
 		List<DisplayMessageModel> e = new ArrayList();
 		for (MessageModel messageModel : messageresults) {
 			for (int i = 0; i < results.size();i++) {
