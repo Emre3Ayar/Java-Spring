@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.SpEEdysm1des.models.DisplayMessageModel;
 import com.SpEEdysm1des.models.MessageModel;
 import com.SpEEdysm1des.models.UserModel;
 import com.SpEEdysm1des.services.MessagesBusinessServiceInterface;
@@ -43,9 +44,9 @@ public class MessageRestController {
 	}
 	
 	@GetMapping("/displayMessage")
-	public List<MessageModel> showAllUsers()
+	public List<DisplayMessageModel> showAllUsers()
 	{	
-		List<MessageModel> messages = service2.displayMessages();
+		List<DisplayMessageModel> messages = service2.displayMessages();
 		return messages;
 	}
 }

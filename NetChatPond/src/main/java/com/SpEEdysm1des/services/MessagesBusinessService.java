@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.SpEEdysm1des.data.MessageDataAccessInterface;
 import com.SpEEdysm1des.data.UserDataAccessInterface;
+import com.SpEEdysm1des.models.DisplayMessageModel;
 import com.SpEEdysm1des.models.MessageModel;
 import com.SpEEdysm1des.models.UserModel;
 
@@ -54,7 +55,7 @@ public class MessagesBusinessService implements MessagesBusinessServiceInterface
 	}
 
 	@Override
-	public List<MessageModel> displayMessages() {
+	public List<DisplayMessageModel> displayMessages() {
 		// TODO Auto-generated method stub
 		return messagesDAO.displayMessages();
 	}

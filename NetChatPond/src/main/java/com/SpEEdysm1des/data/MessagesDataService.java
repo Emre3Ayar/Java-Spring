@@ -1,5 +1,6 @@
 package com.SpEEdysm1des.data;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
+import com.SpEEdysm1des.models.DisplayMessageModel;
 import com.SpEEdysm1des.models.MessageModel;
 import com.SpEEdysm1des.models.UserModel;
 import com.SpEEdysm1des.models.UsersMapper;
@@ -83,9 +85,18 @@ public class MessagesDataService implements MessageDataAccessInterface {
 		return false;
 	}
 	@Override
-	public List<MessageModel> displayMessages() {
+	public List<DisplayMessageModel> displayMessages() {
 		// TODO Auto-generated method stub
-		List<MessageModel> results = jdbcTemplate.query("SELECT * FROM messages LIMIT 5", new MessagesMapper());
-		return results;
+		List<UserModel> results = jdbcTemplate.query("SELECT * FROM users", new UsersMapper());
+		List<MessageModel> messageresults = jdbcTemplate.query("SELECT * FROM messages LIMIT 5", new MessagesMapper());
+		List<DisplayMessageModel> e = new ArrayList();
+		for (MessageModel messageModel : messageresults) {
+			for (int i = 0; i < results.size();i++) {
+				if (Objects.equals(results.get(i).getId(), messageresults.get(i).getUserId())) {
+					e.add(new DisplayMessageModel(0, messageModel.getMessageContent(), results.get(i).getUserName()));
+				}
+			}
+		}
+		return e;
 	}
 }
