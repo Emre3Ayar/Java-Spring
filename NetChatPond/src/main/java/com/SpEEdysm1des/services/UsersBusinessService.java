@@ -49,10 +49,6 @@ public class UsersBusinessService implements UsersBusinessServiceInterface{
 		return false;
 	}
 
-	@Override
-	public boolean SendMessage(UserModel model, String message) {
-		// TODO Auto-generated method stub
-		return usersDAO.SendMessage(model, message);
-	}
+
 	
 }

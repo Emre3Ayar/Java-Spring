@@ -94,15 +94,4 @@ public class UsersFakeDAO implements UserDataAccessInterface{
 		}
 		return false;
 	}
-
-	@Override
-	public boolean SendMessage(UserModel model, String message) {
-		// TODO Auto-generated method stub
-		if(checkToken(model)) {
-			//MessageModel e = service.createMessage(message);
-			//model.addMessageId(e.getMessageId());
-			return true;
-		}
-		return false;
-	}
 }

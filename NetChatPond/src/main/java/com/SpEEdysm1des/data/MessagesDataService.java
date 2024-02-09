@@ -61,4 +61,31 @@ public class MessagesDataService implements MessageDataAccessInterface {
 			return "nothing";
 		}
 	}
+	@Override
+	public boolean SendMessage(UserModel model, String message) {
+		// TODO Auto-generated method stub
+		List<UserModel> results = jdbcTemplate.query("SELECT * FROM users", new UsersMapper());
+		for (int i = 0; i < results.size();i++) {
+			if (Objects.equals(results.get(i).getUserName(), model.getUserName())) {
+				if (model.getUserToken() == results.get(i).getUserToken()) {
+//					//-results.get(i)
+//					//-MessageModel m = new MessageModel(0, 0, message);
+//					//-SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
+//					//-simpleJdbcInsert.withTableName("MESSAGES").usingGeneratedKeyColumns("ID");
+//					//-Map<String, Object> parameters = new HashMap<String, Object>();
+//					//-parameters.put(message, m.)
+//					//-List<MessageModel> r = jdbcTemplate.query("INSERT INTO messages (USERID, MESSAGECONTENT) VALUES (?,?)");
+					addMessage(results.get(i).getId(), message);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	@Override
+	public List<MessageModel> displayMessages() {
+		// TODO Auto-generated method stub
+		List<MessageModel> results = jdbcTemplate.query("SELECT * FROM messages LIMIT 5", new MessagesMapper());
+		return results;
+	}
 }

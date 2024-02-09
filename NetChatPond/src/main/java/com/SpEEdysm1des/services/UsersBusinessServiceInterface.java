@@ -8,7 +8,7 @@ public interface UsersBusinessServiceInterface {
 	public void init();
 	public void destroy();
 	public boolean checkToken(UserModel model);
-	public boolean SendMessage(UserModel model, String message);
+	
 	
 	public List<UserModel> getUsers();
 	public List<UserModel> searchUser(String searchTerm);

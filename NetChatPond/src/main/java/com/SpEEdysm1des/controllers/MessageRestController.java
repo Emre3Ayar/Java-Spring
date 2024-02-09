@@ -12,42 +12,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.SpEEdysm1des.models.MessageModel;
 import com.SpEEdysm1des.models.UserModel;
 import com.SpEEdysm1des.services.MessagesBusinessServiceInterface;
 import com.SpEEdysm1des.services.UsersBusinessServiceInterface;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/v1/users")
-public class NetChatPondRestController {
-	UsersBusinessServiceInterface service;
+@RequestMapping("/api/v1")
+public class MessageRestController {
 	@Autowired
 	MessagesBusinessServiceInterface service2;
-	@Autowired
-	public NetChatPondRestController(UsersBusinessServiceInterface service) {
-		super();
-		this.service = service;
-	}
-	@PostMapping("/")
-	public long addUser(@RequestBody UserModel model)
-	{	
-		return service.addUser(model);
-	}
+//	@Autowired
+//	public NetChatPondRestController(UsersBusinessServiceInterface service) {
+//		super();
+//		this.service = service;
+//	}
+
 	@PostMapping("/send/{message}")
 	public boolean sendMessage(@PathVariable(name="message") String message, @RequestBody UserModel model)
 	{	
-		return service.SendMessage(model, message);
+		return service2.SendMessage(model, message);
 		//return false;
 	}
-	@GetMapping("/")
-	public List<UserModel> showAllUsers()
-	{	
-		List<UserModel> users = service.getUsers();
-		return users;
-	}
-	@PostMapping("/getmessages/{id}")
+
+	@PostMapping("/getMessages/{id}")
 	public String getMessages(@PathVariable(name="id") long id)
 	{	
 		return service2.getMessageFrom(id);
+	}
+	
+	@GetMapping("/displayMessage")
+	public List<MessageModel> showAllUsers()
+	{	
+		List<MessageModel> messages = service2.displayMessages();
+		return messages;
 	}
 }
