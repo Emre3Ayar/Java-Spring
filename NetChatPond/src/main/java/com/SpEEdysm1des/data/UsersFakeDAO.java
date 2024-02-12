@@ -94,4 +94,10 @@ public class UsersFakeDAO implements UserDataAccessInterface{
 		}
 		return false;
 	}
+
+	@Override
+	public boolean verifyUser(UserModel loginUser) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

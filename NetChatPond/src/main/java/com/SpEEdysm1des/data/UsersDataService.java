@@ -46,8 +46,8 @@ public class UsersDataService implements UserDataAccessInterface {
 	public boolean checkToken(UserModel model) {
 		// TODO Auto-generated method stub
 		var token = model.getUserToken();
-		List<UserModel> results = jdbcTemplate.query("SELECT USERTOKEN FROM users WHERE ? = USERTOKEN", new UsersMapper(), token);
-		if (results.get(0) != null) {
+		List<UserModel> results = jdbcTemplate.query("SELECT * FROM users WHERE USERTOKEN = ?", new UsersMapper(), token);
+		if (!results.isEmpty()) {
 			return true;
 		}
 		return false;
@@ -68,6 +68,19 @@ public class UsersDataService implements UserDataAccessInterface {
 		parameters.put("USERMESSAGES", newUser.getMessageId());
 		Number results = simpleJdbcInsert.executeAndReturnKey(parameters);
 		return results.longValue();
+	}
+
+	@Override
+	public boolean verifyUser(UserModel loginUser) {
+		// TODO Auto-generated method stub
+		var name = loginUser.getUserName();
+		List<UserModel> result = jdbcTemplate.query("SELECT * FROM users WHERE USERNAME = ?", new UsersMapper(), name);
+		if (!result.isEmpty()) {
+			if(checkToken(loginUser)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

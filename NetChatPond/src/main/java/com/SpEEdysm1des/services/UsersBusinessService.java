@@ -49,6 +49,12 @@ public class UsersBusinessService implements UsersBusinessServiceInterface{
 		return false;
 	}
 
+	@Override
+	public boolean verifyUser(UserModel loginUser) {
+		// TODO Auto-generated method stub
+		return usersDAO.verifyUser(loginUser);
+	}
+
 
 	
 }

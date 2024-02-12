@@ -10,4 +10,5 @@ public interface UserDataAccessInterface {
 	public boolean checkToken(UserModel model);
 	
 	public long addUser(UserModel newUser);
+	public boolean verifyUser(UserModel loginUser);
 }

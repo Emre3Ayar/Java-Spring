@@ -30,4 +30,10 @@ public class UserRestController {
 		List<UserModel> users = service.getUsers();
 		return users;
 	}
+	@PostMapping("/verifyUser")
+	public boolean verifyUser(@RequestBody UserModel model)
+	{	
+		System.out.println(service.verifyUser(model));
+		return service.verifyUser(model);
+	}
 }

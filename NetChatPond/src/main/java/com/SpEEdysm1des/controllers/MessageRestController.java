@@ -47,6 +47,7 @@ public class MessageRestController {
 	public List<DisplayMessageModel> showAllUsers()
 	{	
 		List<DisplayMessageModel> messages = service2.displayMessages();
+		System.out.println(messages);
 		return messages;
 	}
 }

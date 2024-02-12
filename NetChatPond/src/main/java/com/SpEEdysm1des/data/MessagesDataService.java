@@ -2,6 +2,7 @@ package com.SpEEdysm1des.data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -90,13 +91,15 @@ public class MessagesDataService implements MessageDataAccessInterface {
 		List<UserModel> results = jdbcTemplate.query("SELECT * FROM users", new UsersMapper());
 		List<MessageModel> messageresults = jdbcTemplate.query("SELECT * FROM messages ORDER BY ID DESC LIMIT 5", new MessagesMapper());
 		List<DisplayMessageModel> e = new ArrayList();
+		
 		for (MessageModel messageModel : messageresults) {
-			for (int i = 0; i < results.size();i++) {
-				if (Objects.equals(results.get(i).getId(), messageresults.get(i).getUserId())) {
+			for(int i = 0;i < results.size();i++) {
+				if(Objects.equals(messageModel.getUserId(), results.get(i).getId())) {
 					e.add(new DisplayMessageModel(0, messageModel.getMessageContent(), results.get(i).getUserName()));
-				}
+					}
 			}
 		}
+		
 		return e;
 	}
 }

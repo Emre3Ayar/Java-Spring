@@ -14,4 +14,5 @@ public interface UsersBusinessServiceInterface {
 	public List<UserModel> searchUser(String searchTerm);
 	
 	public long addUser(UserModel newUser);
+	public boolean verifyUser(UserModel loginUser);
 }
